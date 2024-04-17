@@ -4,8 +4,13 @@ body {
 }
 
 .container {
-    margin: 20px auto;
-    max-width: 300px;
+    padding: 20px; /* Padding around content */
+    max-width: 400px; /* Maximum width */
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .board {
@@ -17,15 +22,15 @@ body {
 }
 
 .cell {
-    background-color: #fff;
-    border: 1px solid #fff;
+    background-color: rgb(107, 32, 255);
+    border: 1px solid rgb(32, 255, 117);
     padding: 20px;
     font-size: 24px;
-    cursor: pointer;
+    cursor: crosshair;
 }
 
 .cell:hover {
-    background-color: #ddd;
+    background-color: rgba(107, 32, 255,0.75);
 }
 
 h1 {
