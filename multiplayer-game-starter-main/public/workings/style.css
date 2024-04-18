@@ -12,15 +12,12 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
 .board {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 5px;
-    border: 2px solid #333;
+    gap: 7.5px;
     margin-bottom: 10px;
 }
-
 .cell {
     background-color: rgb(107, 32, 255);
     border: 1px solid rgb(32, 255, 117);
@@ -28,7 +25,6 @@ body {
     font-size: 24px;
     cursor: crosshair;
 }
-
 .cell:hover {
     background-color: rgba(107, 32, 255,0.75);
 }
@@ -39,12 +35,15 @@ h1 {
 
 button {
     padding: 10px 20px;
-    background-color: #333;
+    background-color: #555;
     color: #fff;
     border: none;
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+    border-top-left-radius: 22px;
+    border-bottom-left-radius: 22px;
     cursor: pointer;
 }
-
 button:hover {
-    background-color: #555;
+    background-color: #888;
 }
