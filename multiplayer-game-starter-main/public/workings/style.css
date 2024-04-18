@@ -21,7 +21,7 @@ body {
 .cell {
     background-color: rgb(107, 32, 255);
     border: 1px solid rgb(32, 255, 117);
-    padding: 20px;
+    padding: 30px;
     font-size: 24px;
     cursor: crosshair;
 }
@@ -34,20 +34,16 @@ h1 {
 }
 
 button {
-    padding: 10px 20px;
+    padding: 5px 30px;
     background-color: #555;
     color: #fff;
     border: none;
-    border-top-right-radius: 22px;
-    border-bottom-right-radius: 22px;
-    border-top-left-radius: 22px;
-    border-bottom-left-radius: 22px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
     cursor: pointer;
 }
 button:hover {
     background-color: #888;
 }
-
-
-
-

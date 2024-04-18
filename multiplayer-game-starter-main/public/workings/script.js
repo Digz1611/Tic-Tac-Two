@@ -2,13 +2,19 @@ let clickCount = 0;
 
 function handleClick(event) {
     const cell = event.target;
+    if (cell.textContent !== '') {
+      alert('Cell is already occupied!');
+      return;
+    }
+    
     if (clickCount % 2 === 0) {
-        cell.textContent = 'x';
+      cell.textContent = 'x';
     } else {
-        cell.textContent = 'o';
+      cell.textContent = 'o';
     }
     clickCount++;
-}
+  }
+
 
 const cells = document.querySelectorAll('.cell');
 cells.forEach(cell => {
