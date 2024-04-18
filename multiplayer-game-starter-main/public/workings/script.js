@@ -1,35 +1,26 @@
-let currentPlayer = 'X';
-let board = ['', '', '', '', '', '', '', '', ''];
-let gameEnded = false;
+let clickCount = 0;
 
-function handleCellClick(index) {
-    if (!gameEnded && board[index] === '') {
-        board[index] = currentPlayer;
-        document.getElementById(index).innerText = currentPlayer;
-        if (checkWin()) {
-            alert(`${currentPlayer} wins!`);
-            gameEnded = true;
-        } else if (!board.includes('')) {
-            alert("It's a tie!");
-            gameEnded = true;
-        } else {
-            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-        }
+function handleClick(event) {
+    const cell = event.target;
+    if (clickCount % 2 === 0) {
+        cell.textContent = 'x';
+    } else {
+        cell.textContent = 'o';
     }
+    clickCount++;
 }
 
-function checkWin() {
-    const winPatterns = [
-        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
-        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
-        [0, 4, 8], [2, 4, 6] // Diagonals
-    ];
-    return winPatterns.some(pattern => pattern.every(index => board[index] === currentPlayer));
-}
+const cells = document.querySelectorAll('.cell');
+cells.forEach(cell => {
+    cell.addEventListener('click', handleClick);
+});
 
 function resetGame() {
-    currentPlayer = 'X';
-    board = ['', '', '', '', '', '', '', '', ''];
-    gameEnded = false;
-    document.querySelectorAll('.cell').forEach(cell => cell.innerText = '');
+    const cells = document.querySelectorAll('.cell');
+    cells.forEach(cell => {
+        cell.textContent = '';
+    });
+    // Reset any game-related variables
+    // For example, reset clickCount to 0
+    clickCount = 0;
 }
