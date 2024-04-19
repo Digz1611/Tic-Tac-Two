@@ -14,3 +14,10 @@ rocket
 aureola
 sinkin
 humane
+body {
+    font-family: "Times New Roman", Times, serif;
+  }
+  h1 {
+    font-family: Georgia, serif;
+  }
+    font-family: Verdana, Geneva, sans-serif;
