@@ -7,6 +7,8 @@ const winningCombos = [
 ];
 let isWin = false;
 let isTie = false;
+let playerXScore = 0;
+let playerOScore = 0;
 
 function handleClick(event) {
   const cell = event.target;
@@ -25,7 +27,13 @@ function handleClick(event) {
   isWin = checkWin(symbol);
   isTie = !isWin && clickCount === 9;
 
-  if (isWin || isTie) {
+  updateBoard();
+
+  if (isWin) {
+    highlightWinningCells(symbol);
+    updateScore(symbol);
+    setTimeout(resetGame, 5000);
+  } else if (isTie) {
     displayResult();
     resetGame();
   }
@@ -44,26 +52,43 @@ function updateBoard() {
   });
 }
 
-function displayResult() {
-  if (isWin) {
-    updateBoard();
-    const symbol = clickCount % 2 === 0 ? 'X' : 'O';
-    alert(`${symbol} wins!`);
-  } else if (isTie) {
-    updateBoard();
-    alert('It\'s a tie!');
-  }
-}
-
 function resetGame() {
   const cells = document.querySelectorAll('.cell');
   cells.forEach(cell => {
     cell.textContent = '';
+    cell.style.backgroundColor = 'rgb(107, 32, 255)';
+    cell.style.color = 'white';
   });
   board = ['', '', '', '', '', '', '', '', ''];
   clickCount = 0;
   isWin = false;
   isTie = false;
+}
+function highlightWinningCells(symbol) {
+  const winningCombo = winningCombos.find(combo =>
+    combo.every(index => board[index] === symbol)
+  );
+
+  if (winningCombo) {
+    winningCombo.forEach(index => {
+      const cell = document.getElementById(`${index + 1}`);
+      cell.style.backgroundColor = 'rgb(32, 255, 117)';
+    });
+  }
+}
+
+function updateScore(symbol) {
+  if (symbol === 'X') {
+    playerXScore++;
+    document.getElementById('playerXScore').textContent = playerXScore;
+  } else {
+    playerOScore++;
+    document.getElementById('playerOScore').textContent = playerOScore;
+  }
+}
+
+function displayResult() {
+  alert('It\'s a tie!');
 }
 
 const cells = document.querySelectorAll('.cell');
@@ -71,6 +96,8 @@ cells.forEach(cell => {
   cell.addEventListener('click', handleClick);
 });
 
+const resetButton = document.getElementById('resetButton');
+resetButton.addEventListener('click', resetGame);
 
 
 
