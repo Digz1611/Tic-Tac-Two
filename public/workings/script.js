@@ -1,3 +1,4 @@
+const socket = io()
 let clickCount = 0;
 let board = ['', '', '', '', '', '', '', '', ''];
 const winningCombos = [
