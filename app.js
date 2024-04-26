@@ -23,3 +23,22 @@ server.listen(port, () => {
 });
 
 console.log('server loaded');
+
+// const players = {}
+
+// io.on('connection', (socket) => {
+//   console.log('a user connected');
+//   players[socket.id] = {
+//     x: 500 * Math.random(),
+//     y: 500 * Math.random()
+//   }
+
+//   io.emit('updatePlayers', players)
+
+//   socket.on('disconnect', (reason) => {
+//   console.log(reason)
+//   delete players[socket.id]
+//   io.emit('updatePlayers', players)
+//   })
+//   console.log(players)
+// });

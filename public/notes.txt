@@ -1,23 +1,21 @@
-wins combo:
+FONTS:
+ - Michroma
+ - Rocket
+ - Aureola
+ - Sinkin
+ - Humane
+ - Times New Roman
+ - Georgia
+ - Verdana
 
-[1,2,3]
-[4,5,6]
-[7,8,9]
-[1,4,7]
-[2,5,8]
-[3,6,9]
-[1,5,9]
-[3,5,7]
-
-michroma
-rocket
-aureola
-sinkin
-humane
-body {
-    font-family: "Times New Roman", Times, serif;
-  }
-  h1 {
-    font-family: Georgia, serif;
-  }
-    font-family: Verdana, Geneva, sans-serif;
+Future Plans:
+ - make online
+ - make new new mode
+ - player profile 
+  - save stats
+  - custom name
+  - change profile pic
+  - choose colour for piece
+ - global leaderboard 
+ - have private(use id like in other web games)
+ - random games with random people
