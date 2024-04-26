@@ -1,39 +1,3 @@
-// const express = require('express');
-// const app = express();
-
-// //socket.io setup
-// const http = require('http');
-// const server = http.createServer(app);
-// const { Server } = require('socket.io');
-// const io = new Server(server);
-// const port = 3000
-
-// app.use(express.static('public'));
-
-// app.get('/', (req, res) => {
-//   res.sendFile(__dirname + '/index.html');
-// });
-
-// io.on('connection', (socket) => {
-//   console.log('a user connected');
-// });
-
-// server.listen(port, () => {
-//   console.log(`Example app listening on port ${port}`);
-// });
-
-// console.log('server loaded');
-
-
-
-
-
-
-
-
-
-
-
 const express = require('express');
 const app = express();
 
@@ -105,3 +69,30 @@ server.listen(port, () => {
 });
 
 console.log('server loaded');
+
+
+
+
+
+////new code to test
+function generateGameCode() {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let code = '';
+  // Add the first part of the game code (e.g., 'AFR:')
+  code += 'AFR:';
+  // Generate 5 random letters and numbers
+  for (let i = 0; i < 5; i++) {
+    code += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  // Add a separator (e.g., ':')
+  code += ':';
+  // Generate 5 more random letters and numbers
+  for (let i = 0; i < 5; i++) {
+    code += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return code;
+}
+
+// Usage example:
+const gameCode = generateGameCode();
+console.log(gameCode);
