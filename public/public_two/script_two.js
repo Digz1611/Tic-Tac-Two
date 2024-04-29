@@ -1,6 +1,3 @@
-// Initialize Socket.IO connection
-const socket = io();
-
 // Initialize variables
 let clickCount = 0; // Tracks the number of clicks
 let board = ['', '', '', '', '', '', '', '', '']; // Represents the tic-tac-toe board
@@ -14,6 +11,9 @@ let isWin = false; // Flag to track if a player has won
 let playerXScore = 0; // Player X's score
 let playerOScore = 0; // Player O's score
 
+// Queue to keep track of clicked cell indices
+let clickedCells = [];
+
 // Function to handle cell click
 function handleClick(event) {
   const cell = event.target;
@@ -25,12 +25,20 @@ function handleClick(event) {
     return;
   }
 
+  // Remove oldest cell if number of cells on board exceeds 6
+  if (clickCount >= 6) {
+    removeOldest();
+  }
+
   // Determine the current player's symbol (X or O)
   const symbol = clickCount % 2 === 0 ? 'X' : 'O';
   // Update the board and UI with the current symbol
   board[cellIndex] = symbol;
   cell.textContent = symbol;
   clickCount++;
+
+  // Add the clicked cell index to the queue
+  clickedCells.push(cellIndex);
 
   // Check if the current player has won
   isWin = checkWin(symbol);
@@ -42,7 +50,7 @@ function handleClick(event) {
   if (isWin) {
     highlightWinningCells(symbol);
     updateScore(symbol);
-    setTimeout(resetGame, 5000);
+    setTimeout(resetGame, 1000);
   } 
 }
 
@@ -75,13 +83,7 @@ function resetGame() {
   board = ['', '', '', '', '', '', '', '', ''];
   clickCount = 0;
   isWin = false;
-}
-
-//remove oldest
-function removeOldest() {
-  if (clickCount === 6) {
-    alert('test!');
-  }
+  clickedCells = [];
 }
 
 // Function to highlight the winning cells
@@ -109,12 +111,24 @@ function updateScore(symbol) {
   }
 }
 
+// Function to remove the oldest cell
+function removeOldest() {
+  const oldestCellIndex = clickedCells.shift();
+  if (oldestCellIndex !== undefined) {
+    board[oldestCellIndex] = '';
+    const oldestCell = document.getElementById(`${oldestCellIndex + 1}`);
+    oldestCell.textContent = '';
+  }
+}
+
 // Add event listeners to each cell for click events
 const cells = document.querySelectorAll('.cell');
 cells.forEach(cell => {
   cell.addEventListener('click', handleClick);
 });
 
-// Add event listener to the reset button to reset the game
-const resetButton = document.getElementById('resetButton');
-resetButton.addEventListener('click', resetGame);
+// Add event listener to the again button to again the game
+const againButton = document.getElementById('againButton');
+againButton.addEventListener('click', resetGame);
+
+

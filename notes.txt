@@ -9,10 +9,10 @@ FONTS:
  - Verdana
 
 Future Plans:
+ - edit scoreboard to be lives(8-bit heart)
  - make online
   - have private(use id like in other web games)
   - random games with random people
- - make new mode
  - player profile 
   - save stats
   - custom name

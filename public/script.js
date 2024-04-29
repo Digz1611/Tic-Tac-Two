@@ -33,7 +33,7 @@ function handleClick(event) {
   if (isWin) {
     highlightWinningCells(symbol);
     updateScore(symbol);
-    setTimeout(resetGame, 5000);
+    setTimeout(resetGame, 1000);
   } else if (isTie) {
     displayResult();
     resetGame();
