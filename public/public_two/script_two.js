@@ -125,24 +125,12 @@ function removeOldest() {
   }
 }
 
-
-
-  
-  
-    
-
-    
-
-
-
-
-//future...
 // Function to highlight the oldest cell
 function highlightOldest() {
   const oldestCellIndex = clickedCells[0];
   if (oldestCellIndex !== undefined) {
     const oldestCell = document.getElementById(`${oldestCellIndex + 1}`);
-    oldestCell.style.color = 'rgba(255, 255, 255, 0.75)'; // Change color to red
+    oldestCell.style.color = 'rgba(255, 255, 255, 0.75)'; // Change colour
   }
 }
 
