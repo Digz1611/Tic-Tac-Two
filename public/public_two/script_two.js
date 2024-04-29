@@ -31,8 +31,6 @@ function handleClick(event) {
     highlightOldest();
   }
 
-
-
   // Determine the current player's symbol (X or O)
   const symbol = clickCount % 2 === 0 ? 'X' : 'O';
   // Update the board and UI with the current symbol
