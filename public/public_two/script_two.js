@@ -28,7 +28,10 @@ function handleClick(event) {
   // Remove oldest cell if number of cells on board exceeds 6
   if (clickCount >= 6) {
     removeOldest();
+    highlightOldest();
   }
+
+
 
   // Determine the current player's symbol (X or O)
   const symbol = clickCount % 2 === 0 ? 'X' : 'O';
@@ -113,11 +116,33 @@ function updateScore(symbol) {
 
 // Function to remove the oldest cell
 function removeOldest() {
-  const oldestCellIndex = clickedCells.shift();
+  const oldestCellIndex = clickedCells.shift(); //not same
   if (oldestCellIndex !== undefined) {
     board[oldestCellIndex] = '';
     const oldestCell = document.getElementById(`${oldestCellIndex + 1}`);
     oldestCell.textContent = '';
+    oldestCell.style.color = 'white'; 
+  }
+}
+
+
+
+  
+  
+    
+
+    
+
+
+
+
+//future...
+// Function to highlight the oldest cell
+function highlightOldest() {
+  const oldestCellIndex = clickedCells[0];
+  if (oldestCellIndex !== undefined) {
+    const oldestCell = document.getElementById(`${oldestCellIndex + 1}`);
+    oldestCell.style.color = 'rgba(255, 255, 255, 0.75)'; // Change color to red
   }
 }
 
