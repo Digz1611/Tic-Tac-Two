@@ -141,5 +141,3 @@ cells.forEach(cell => {
 // Add event listener to the again button to again the game
 const againButton = document.getElementById('againButton');
 againButton.addEventListener('click', resetGame);
-
-
