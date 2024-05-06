@@ -19,3 +19,6 @@ Future Plans:
   - change profile pic
   - choose colour for piece
  - global leaderboard 
+
+make local to fix life issue and use if 
+button --- localStorage.clear();
