@@ -144,6 +144,7 @@ function updateScoreDisplay(symbol, score) {
 // Function to decide the winner
 function determineWinner(symbol) {
   alert('Player ' + symbol + ' WINS!!!!');
+  localStorage.clear()
 }
 
 // Function to remove the oldest cell
@@ -175,5 +176,3 @@ cells.forEach(cell => {
 // Add event listener to the again button to reset the game and clear local storage
 const againButton = document.getElementById('againButton');
 againButton.addEventListener('click', resetGameAndClearStorage);
-
-alert

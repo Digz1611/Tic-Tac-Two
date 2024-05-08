@@ -10,15 +10,23 @@
 
 <body style="background-color: #202020; color: #fff;">
   <div class="container">
-    <h1>Tic-Tac-Toe</h1>
+    <h1>Tic-Tac-Two</h1>
     <div class="scoreboard">
       <div class="player-score">
         <span class="player-x">Player X: </span>
-        <span id="playerXScore">0</span>
+        <div id="playerXScore">
+          <img src="public/8-bit_life.png">
+          <img src="public/8-bit_life.png">
+          <img src="public/8-bit_life.png">
+        </div>
       </div>
       <div class="player-score">
         <span class="player-o">Player O: </span>
-        <span id="playerOScore">0</span>
+        <div id="playerOScore">
+          <img src="public/8-bit_life.png">
+          <img src="public/8-bit_life.png">
+          <img src="public/8-bit_life.png">
+        </div>
       </div>
     </div>
     <div class="board" id="board">
@@ -32,11 +40,10 @@
       <div class="cell" id="8"></div>
       <div class="cell" id="9"></div>
     </div>
-    <button id="resetButton">Reset Game</button>
+    <button onClick="window.location.href=window.location.href" id="againButton">Play Again</button>
     <a href="public/public_two/index_two.html"><button>Too Boring for ya?</button></a>
   </div>
-  <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
-  <script src="public/script.js"></script>
+  <script src="public/script2.js"></script>
 </body>
 
 </html>

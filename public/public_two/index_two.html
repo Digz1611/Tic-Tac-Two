@@ -11,7 +11,6 @@
 <body style="background-color: #202020; color: #fff;">
   <div class="container">
     <h1>Tic-Tac-Two</h1>
-    <!-- add style="color: #202020;" into the span -->
     <div class="scoreboard">
       <div class="player-score">
         <span class="player-x">Player X: </span>
@@ -41,9 +40,8 @@
       <div class="cell" id="8"></div>
       <div class="cell" id="9"></div>
     </div>
-    <button id="againButton">Play Again</button>
+    <button onClick="window.location.href=window.location.href" id="againButton">Play Again</button>
   </div>
-  <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
   <script src="script_two.js"></script>
 </body>
 
