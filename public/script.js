@@ -133,9 +133,9 @@ function updateScoreDisplay(symbol, score) {
     const scoreContainer = symbol === 'X' ? document.getElementById('playerXScore') : document.getElementById('playerOScore');
     scoreContainer.innerHTML = '';
     for (let i = 0; i < score; i++) {
-        const heart = document.createElement('img');
-        heart.src = 'public/8-bit_life.png';
-        scoreContainer.appendChild(heart);
+        const life = document.createElement('img');
+        life.src = 'public/8-bit_life.png';
+        scoreContainer.appendChild(life);
     }
 }
 
