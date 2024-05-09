@@ -48,7 +48,7 @@ function handleClick(event) {
         setTimeout(function() { resetGame(); }, 1000);
     } else if (isTie) {
         declareTie();
-        setTimeout(function() { resetGame(); }, 500);
+        setTimeout(function() { resetGame(); }, 1000);
     }
 }
 
@@ -141,9 +141,10 @@ function updateScoreDisplay(symbol, score) {
 
 // Function to decide the winner 
 function determineWinner(symbol) {
-    alert('Player ' + symbol + ' WINS!!!!');
+    setTimeout(function() { alert('Player ' + symbol + ' WINS!!!!'); }, 1000);
     localStorage.clear()
 }
+
 // Function to declare a tie
 function declareTie() {
     setTimeout(function() { alert("It\'s a tie!"); }, 500);

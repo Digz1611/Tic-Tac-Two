@@ -143,7 +143,7 @@ function updateScoreDisplay(symbol, score) {
 
 // Function to decide the winner
 function determineWinner(symbol) {
-  alert('Player ' + symbol + ' WINS!!!!');
+  setTimeout(function() { alert('Player ' + symbol + ' WINS!!!!'); }, 1000);
   localStorage.clear()
 }
 
