@@ -2,12 +2,12 @@
 let clickCount = 0;
 let board = ['', '', '', '', '', '', '', '', ''];
 const winningCombos = [
-    [0, 1, 2], [3, 4, 5], [6, 7, 8],
-    [0, 3, 6], [1, 4, 7], [2, 5, 8],
-    [0, 4, 8], [2, 4, 6]
+    [0, 1, 2], [3, 4, 5], [6, 7, 8], // Horizontal
+    [0, 3, 6], [1, 4, 7], [2, 5, 8], // Vertical
+    [0, 4, 8], [2, 4, 6] // Diagonal
 ];
 let isWin = false;
-
+let isTie = false;
 let playerXScore = 3;
 let playerOScore = 3;
 
@@ -36,6 +36,7 @@ function handleClick(event) {
 
     // Check if the current player has won
     isWin = checkWin(symbol);
+    isTie = !isWin && clickCount === 9;
 
     // Update the board UI
     updateBoard();
@@ -44,7 +45,10 @@ function handleClick(event) {
     if (isWin) {
         highlightWinningCells(symbol);
         updateScore(symbol);
-        setTimeout(resetGame, 1000);
+        setTimeout(function() { resetGame(); }, 1000);
+    } else if (isTie) {
+        declareTie();
+        setTimeout(function() { resetGame(); }, 500);
     }
 }
 
@@ -78,7 +82,7 @@ function resetGame() {
     board = ['', '', '', '', '', '', '', '', ''];
     clickCount = 0;
     isWin = false;
-    clickedCells = [];
+    isTie = false;
 
     // Retrieve scores from localStorage and update score displays
     playerXScore = parseInt(localStorage.getItem('playerXScore')) || 3;
@@ -135,10 +139,14 @@ function updateScoreDisplay(symbol, score) {
     }
 }
 
-// Function to decide the winner
+// Function to decide the winner 
 function determineWinner(symbol) {
     alert('Player ' + symbol + ' WINS!!!!');
     localStorage.clear()
+}
+// Function to declare a tie
+function declareTie() {
+    setTimeout(function() { alert("It\'s a tie!"); }, 500);
 }
 
 // Add event listeners to each cell for click events
@@ -150,5 +158,3 @@ cells.forEach(cell => {
 // Add event listener to the again button to reset the game and clear local storage
 const againButton = document.getElementById('againButton');
 againButton.addEventListener('click', resetGameAndClearStorage);
-
-
